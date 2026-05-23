@@ -1,0 +1,1310 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Recomendaciones Dietéticas en Litiasis Renal</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700&family=Source+Sans+3:wght@300;400;600&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --calcio: #1a5f7a;
+    --calcio-light: #e8f4f8;
+    --calcio-mid: #5b9eb9;
+    --urico: #7a4f1a;
+    --urico-light: #fdf3e8;
+    --urico-mid: #c4914d;
+    --cistina: #3a1a7a;
+    --cistina-light: #ede8f8;
+    --cistina-mid: #8a6bbf;
+    --citrato: #1a7a4a;
+    --citrato-light: #e8f8ee;
+    --citrato-mid: #4faf7a;
+    --text: #1a1a2e;
+    --text-light: #555566;
+    --danger: #c0392b;
+    --warn: #d35400;
+    --ok: #27ae60;
+    --bg: #fafaf8;
+    --border: #e0ddd5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Source Sans 3', sans-serif;
+    background: var(--bg);
+    color: var(--text);
+    font-size: 14px;
+    line-height: 1.55;
+  }
+
+  /* Print */
+  @media print {
+    body { font-size: 12px; }
+    .no-print { display: none; }
+    .section { break-inside: avoid; page-break-inside: avoid; }
+    .page-break { page-break-before: always; }
+    header { break-inside: avoid; }
+  }
+
+  /* HEADER */
+  header {
+    background: linear-gradient(135deg, #1a2a4a 0%, #0d1b2a 100%);
+    color: white;
+    padding: 28px 40px 22px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border-bottom: 4px solid #4a90c4;
+  }
+
+  header h1 {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px;
+    font-weight: 700;
+    letter-spacing: 0.02em;
+    line-height: 1.3;
+  }
+
+  header p {
+    font-size: 12px;
+    opacity: 0.75;
+    margin-top: 4px;
+    font-weight: 300;
+  }
+
+  .header-badge {
+    background: rgba(255,255,255,0.12);
+    border: 1px solid rgba(255,255,255,0.25);
+    border-radius: 8px;
+    padding: 10px 18px;
+    text-align: center;
+    font-size: 11px;
+    line-height: 1.4;
+  }
+
+  .header-badge strong { font-size: 20px; display: block; }
+
+  /* TABS NAV */
+  .tabs-nav {
+    display: flex;
+    background: #1a2a4a;
+    padding: 0 40px;
+    gap: 4px;
+    border-bottom: 3px solid #2a3a5a;
+    overflow-x: auto;
+  }
+
+  .tab-btn {
+    padding: 12px 20px;
+    border: none;
+    background: transparent;
+    color: rgba(255,255,255,0.6);
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    border-bottom: 3px solid transparent;
+    margin-bottom: -3px;
+    white-space: nowrap;
+    transition: all 0.2s;
+    letter-spacing: 0.03em;
+    text-transform: uppercase;
+  }
+
+  .tab-btn:hover { color: rgba(255,255,255,0.85); }
+
+  .tab-btn.active {
+    color: white;
+    border-bottom-color: currentColor;
+  }
+
+  .tab-btn[data-tab="universal"].active { color: #f0d060; border-bottom-color: #f0d060; }
+  .tab-btn[data-tab="calcio"].active { color: #6ec6e8; border-bottom-color: #6ec6e8; }
+  .tab-btn[data-tab="urico"].active { color: #e8b46e; border-bottom-color: #e8b46e; }
+  .tab-btn[data-tab="cistina"].active { color: #b46ee8; border-bottom-color: #b46ee8; }
+  .tab-btn[data-tab="citrato"].active { color: #6ee89a; border-bottom-color: #6ee89a; }
+
+  /* CONTENT */
+  .tab-content { display: none; padding: 28px 40px; }
+  .tab-content.active { display: block; }
+
+  /* SECTION HEADER */
+  .section-header {
+    display: flex;
+    align-items: flex-start;
+    gap: 18px;
+    margin-bottom: 22px;
+    padding: 20px 24px;
+    border-radius: 10px;
+    border-left: 5px solid;
+  }
+
+  .section-header .icon { font-size: 36px; flex-shrink: 0; }
+
+  .section-header h2 {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px;
+    margin-bottom: 4px;
+  }
+
+  .section-header p { font-size: 13px; color: var(--text-light); line-height: 1.4; }
+
+  /* COLOR THEMES */
+  .theme-calcio .section-header { background: var(--calcio-light); border-color: var(--calcio); }
+  .theme-calcio .section-header h2 { color: var(--calcio); }
+  .theme-urico .section-header { background: var(--urico-light); border-color: var(--urico); }
+  .theme-urico .section-header h2 { color: var(--urico); }
+  .theme-cistina .section-header { background: var(--cistina-light); border-color: var(--cistina); }
+  .theme-cistina .section-header h2 { color: var(--cistina); }
+  .theme-citrato .section-header { background: var(--citrato-light); border-color: var(--citrato); }
+  .theme-citrato .section-header h2 { color: var(--citrato); }
+
+  /* GRID */
+  .grid-2 { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+  .grid-3 { display: grid; grid-template-columns: 1fr 1fr 1fr; gap: 14px; margin-bottom: 16px; }
+
+  /* CARD */
+  .card {
+    background: white;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    overflow: hidden;
+    box-shadow: 0 1px 4px rgba(0,0,0,0.05);
+  }
+
+  .card-header {
+    padding: 11px 16px;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.06em;
+    text-transform: uppercase;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .theme-calcio .card-header { background: var(--calcio); color: white; }
+  .theme-urico .card-header { background: var(--urico); color: white; }
+  .theme-cistina .card-header { background: var(--cistina); color: white; }
+  .theme-citrato .card-header { background: var(--citrato); color: white; }
+
+  .card-body { padding: 14px 16px; }
+
+  /* PILL LISTS */
+  .pill-list { list-style: none; display: flex; flex-wrap: wrap; gap: 6px; }
+
+  .pill {
+    padding: 4px 10px;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    border: 1.5px solid;
+  }
+
+  .pill-ok { background: #edfaf3; border-color: var(--ok); color: #1a5c33; }
+  .pill-warn { background: #fef6ec; border-color: var(--warn); color: #7a3000; }
+  .pill-danger { background: #fdecea; border-color: var(--danger); color: #7a1000; }
+  .pill-neutral { background: #f0f0f5; border-color: #aaa; color: #444; }
+
+  /* FOOD TABLE */
+  .food-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+
+  .food-table th {
+    padding: 8px 10px;
+    text-align: left;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+    border-bottom: 2px solid var(--border);
+    color: var(--text-light);
+    background: #f8f8f6;
+  }
+
+  .food-table td {
+    padding: 7px 10px;
+    border-bottom: 1px solid var(--border);
+    vertical-align: middle;
+  }
+
+  .food-table tr:last-child td { border-bottom: none; }
+
+  .food-table tr:hover td { background: #f5f5f0; }
+
+  .value-high { color: var(--danger); font-weight: 700; }
+  .value-mid { color: var(--warn); font-weight: 600; }
+  .value-low { color: var(--ok); font-weight: 600; }
+  .value-zero { color: #888; }
+
+  /* LEVEL BAR */
+  .bar-wrap { display: flex; align-items: center; gap: 8px; }
+  .bar {
+    height: 7px;
+    border-radius: 4px;
+    flex-shrink: 0;
+  }
+
+  /* ALERT BOX */
+  .alert {
+    padding: 12px 16px;
+    border-radius: 8px;
+    font-size: 13px;
+    margin-bottom: 14px;
+    display: flex;
+    gap: 10px;
+    align-items: flex-start;
+  }
+
+  .alert-danger { background: #fdecea; border-left: 4px solid var(--danger); }
+  .alert-warn { background: #fef6ec; border-left: 4px solid var(--warn); }
+  .alert-ok { background: #edfaf3; border-left: 4px solid var(--ok); }
+  .alert-info { background: #e8f4f8; border-left: 4px solid #3a80a0; }
+
+  .alert-icon { font-size: 18px; flex-shrink: 0; }
+
+  /* PROTEIN TABLE */
+  .protein-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+    margin-top: 8px;
+  }
+
+  .protein-table th {
+    background: #f0f0f5;
+    padding: 7px 12px;
+    font-size: 11px;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    color: var(--text-light);
+    border-bottom: 2px solid var(--border);
+  }
+
+  .protein-table td {
+    padding: 6px 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+  }
+
+  .protein-table tr:last-child td { border-bottom: none; }
+  .protein-table td:first-child { font-weight: 700; }
+
+  /* SECTION TITLE */
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    margin: 20px 0 10px;
+    padding-bottom: 6px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .theme-calcio .section-title { border-color: var(--calcio-mid); color: var(--calcio); }
+  .theme-urico .section-title { border-color: var(--urico-mid); color: var(--urico); }
+  .theme-cistina .section-title { border-color: var(--cistina-mid); color: var(--cistina); }
+  .theme-citrato .section-title { border-color: var(--citrato-mid); color: var(--citrato); }
+
+  /* WATER BOX */
+  .water-box {
+    background: linear-gradient(135deg, #e8f4fc, #d0eaf7);
+    border: 1px solid #a0cce0;
+    border-radius: 10px;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+  }
+
+  .water-box h4 { color: #1a5f7a; font-size: 13px; font-weight: 700; margin-bottom: 8px; }
+  .water-box ul { list-style: none; }
+  .water-box li { font-size: 12px; padding: 2px 0; }
+  .water-box li::before { content: "💧 "; }
+
+  /* CALCIUM TABLE */
+  .ca-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 12.5px;
+  }
+
+  .ca-table th {
+    background: #e8f4f8;
+    color: var(--calcio);
+    padding: 7px 12px;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.04em;
+    font-weight: 700;
+    border-bottom: 2px solid var(--calcio-mid);
+  }
+
+  .ca-table td {
+    padding: 6px 12px;
+    border-bottom: 1px solid var(--border);
+    font-size: 12px;
+  }
+
+  .ca-table tr:last-child td { border-bottom: none; }
+  .ca-table td:last-child { font-weight: 700; color: var(--calcio); }
+
+  /* FOOTER */
+  footer {
+    background: #1a2a4a;
+    color: rgba(255,255,255,0.6);
+    padding: 14px 40px;
+    font-size: 11px;
+    text-align: center;
+    margin-top: 20px;
+  }
+
+  /* NAV BUTTON */
+  .print-btn {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: #1a2a4a;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    border-radius: 30px;
+    font-family: 'Source Sans 3', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 16px rgba(0,0,0,0.25);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .print-btn:hover { background: #2a4a6a; }
+
+  @media (max-width: 700px) {
+    .grid-2, .grid-3 { grid-template-columns: 1fr; }
+    header { flex-direction: column; gap: 14px; }
+    .tabs-nav { padding: 0 16px; }
+    .tab-content { padding: 16px; }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div>
+    <h1>Recomendaciones Dietéticas en Litiasis Renal</h1>
+    <p>Servicio de Urología · Hospital Clínico San Carlos</p>
+  </div>
+  <div class="header-badge">
+    <strong>💧 &gt; 2L</strong>
+    agua / día<br>
+    <span style="font-size:10px; opacity:0.8">recomendación universal</span>
+  </div>
+</header>
+
+<nav class="tabs-nav">
+  <button class="tab-btn active" data-tab="universal" onclick="showTab('universal')">⭐ Recomendaciones Universales</button>
+  <button class="tab-btn" data-tab="calcio" onclick="showTab('calcio')">🔶 Litiasis Oxalato/Cálcica</button>
+  <button class="tab-btn" data-tab="urico" onclick="showTab('urico')">🟡 Litiasis Ácido Úrico</button>
+  <button class="tab-btn" data-tab="cistina" onclick="showTab('cistina')">🟣 Litiasis de Cistina</button>
+  <button class="tab-btn" data-tab="citrato" onclick="showTab('citrato')">🟢 Hipocitraturia</button>
+</nav>
+
+<!-- ============================== UNIVERSALES ============================== -->
+<div id="tab-universal" class="tab-content active" style="--accent:#b8962e">
+
+  <div class="section-header" style="background: #fdf8e8; border-color: #b8962e; border-left: 5px solid #b8962e;">
+    <div class="icon">⭐</div>
+    <div>
+      <h2 style="color:#7a5c00; font-family:'Playfair Display',serif;">Recomendaciones Dietéticas Básicas Universales</h2>
+      <p>Aplicables a <strong>todos los tipos de litiasis renal</strong>. Estas medidas generales son la base de la prevención de recidivas, independientemente de la composición del cálculo.</p>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 1: HIDRATACIÓN -->
+  <div class="section-title" style="color:#1a5f7a; border-color:#5b9eb9">💧 1. Optimización de la Ingesta Hídrica</div>
+
+  <div class="alert alert-info">
+    <span class="alert-icon">💧</span>
+    <div>
+      <strong>Objetivo: diuresis mínima de 2 litros diarios.</strong> Para ello, ingerir un mínimo de 2 litros de líquidos al día, incrementando este volumen en condiciones de estrés térmico o actividad física intensa. Priorice el agua mineral baja en sodio sobre cualquier otra bebida.
+    </div>
+  </div>
+
+  <div class="card" style="margin-bottom:14px">
+    <div class="card-header" style="background:#c0392b">🚫 Bebidas a Evitar como sustitutos del agua</div>
+    <div class="card-body">
+      <ul class="pill-list">
+        <li><span class="pill pill-danger">Refrescos</span></li>
+        <li><span class="pill pill-danger">Alcohol</span></li>
+        <li><span class="pill pill-danger">Zumos industriales</span></li>
+        <li><span class="pill pill-danger">Bebidas energéticas</span></li>
+      </ul>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 2: AGUAS -->
+  <div class="section-title" style="color:#1a5f7a; border-color:#5b9eb9; margin-top:20px">💧 2. Guía de Aguas Comerciales</div>
+
+  <div class="alert alert-info">
+    <span class="alert-icon">ℹ️</span>
+    <span>La composición mineral del agua es una <strong>herramienta terapéutica adicional</strong>. La elección del tipo de agua puede modularse según el tipo de litiasis.</span>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header" style="background:#1a5f7a">🧂 Bajo Sodio (&lt;10 mg/L)</div>
+      <div class="card-body">
+        <p style="font-size:11px; color:var(--text-light); margin-bottom:8px">Recomendadas para todos los tipos de litiasis:</p>
+        <ul style="font-size:12px; list-style:none; line-height:1.8">
+          <li>• Fuente Liviana</li>
+          <li>• Fuente del Marquesado</li>
+          <li>• Hipercor</li>
+          <li>• Sierra Cazorla</li>
+          <li>• Aquarel / Supersol</li>
+          <li>• Bezoya / Evian</li>
+          <li>• Lanjarón</li>
+          <li>• Solán de Cabras</li>
+          <li>• Fuente Fría / Font D'or</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" style="background:#1a4a7a">⚡ Bicarbonatadas (&gt;170 mg/L)</div>
+      <div class="card-body">
+        <p style="font-size:11px; color:var(--text-light); margin-bottom:8px">Especialmente recomendadas en litiasis úrica y de fosfato cálcico:</p>
+        <ul style="font-size:12px; list-style:none; line-height:1.8">
+          <li>• Sierra Cazorla / Evian</li>
+          <li>• Hipercor</li>
+          <li>• Fuente Primavera</li>
+          <li>• Covirán</li>
+          <li>• Solán de Cabras</li>
+          <li>• Fuente Liviana / Solares</li>
+          <li>• Fuente Fría / Angosto</li>
+          <li>• Fuen Santa</li>
+          <li>• Aquarel / Supersol</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 3: SAL -->
+  <div class="section-title" style="color:#7a3000; border-color:#c4914d; margin-top:20px">🧂 3. Restricción Estricta de Sodio — Máximo 2–3 g/día</div>
+
+  <div class="alert alert-warn">
+    <span class="alert-icon">⚠️</span>
+    <span>La ingesta elevada de sal aumenta la eliminación de calcio en orina, favoreciendo la formación de cálculos. Recuerde: el <strong>77% del sodio proviene de alimentos procesados</strong>, no del salero.</span>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header" style="background:#c0392b">🚫 Alimentos con alto contenido en sal (evitar)</div>
+      <div class="card-body">
+        <table class="food-table">
+          <thead><tr><th>Categoría</th><th>Ejemplos</th></tr></thead>
+          <tbody>
+            <tr><td>Caldos / salsas</td><td>Cubitos de caldo, salsas preparadas, gazpachos industriales</td></tr>
+            <tr><td>Pan / cereales</td><td>Pan y galletas saladas</td></tr>
+            <tr><td>Embutidos</td><td>Mortadela, chopped, jamón serrano, lomo, chorizo, fuet, morcilla</td></tr>
+            <tr><td>Salazones</td><td>Anchoas, bacalao en salazón, mojama, hueva en salazón</td></tr>
+            <tr><td>Aperitivos</td><td>Patatas fritas, aceitunas, frutos secos salados, palomitas</td></tr>
+            <tr><td>Precocinados</td><td>Hamburguesas, salchichas, lasaña preparada, purés preparados</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header" style="background:#27ae60">✅ Estrategia: Potenciadores Botánicos del Sabor</div>
+      <div class="card-body">
+        <p style="font-size:12px; margin-bottom:10px; color:var(--text-light)">Sustitución de la sal por especias y condimentos naturales:</p>
+        <ul class="pill-list">
+          <li><span class="pill pill-ok">Pimienta</span></li>
+          <li><span class="pill pill-ok">Laurel</span></li>
+          <li><span class="pill pill-ok">Ajo en polvo</span></li>
+          <li><span class="pill pill-ok">Zumo de limón</span></li>
+          <li><span class="pill pill-ok">Tomillo</span></li>
+          <li><span class="pill pill-ok">Romero</span></li>
+          <li><span class="pill pill-ok">Orégano</span></li>
+          <li><span class="pill pill-ok">Albahaca</span></li>
+          <li><span class="pill pill-ok">Perejil</span></li>
+          <li><span class="pill pill-ok">Vinagre</span></li>
+          <li><span class="pill pill-ok">Cúrcuma</span></li>
+          <li><span class="pill pill-ok">Comino</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 4: PROTEÍNAS -->
+  <div class="section-title" style="color:#4a3070; border-color:#8a6bbf; margin-top:20px">🥩 4. Control de Proteínas de Origen Animal — 0,8 g/kg/día</div>
+
+  <div class="alert" style="background:#ede8f8; border-left:4px solid #8a6bbf;">
+    <span class="alert-icon">📋</span>
+    <span>La sobrecarga proteica es un factor de riesgo <strong>universal</strong> en la litiasis. Se prescribe una restricción controlada de <strong>0,8 g de proteína por kg de peso corporal al día</strong>, individualizada según el peso del paciente.</span>
+  </div>
+
+  <div class="card" style="margin-bottom:16px">
+    <div class="card-header" style="background:#3a1a7a">Prescripción de Raciones según Peso del Paciente</div>
+    <div class="card-body">
+      <table class="protein-table">
+        <thead>
+          <tr>
+            <th>Peso del paciente</th>
+            <th>Proteínas g/día</th>
+            <th>Raciones diarias recomendadas</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr><td>50–60 kg</td><td>50 g</td><td>1 vaso de leche + 1 yogur + 100 g de carne/pollo (o 2 huevos) + 150 g de pescado</td></tr>
+          <tr><td>70 kg</td><td>55 g</td><td>1 vaso de leche + 2 yogures + 100 g de carne/pollo (o 2 huevos) + 150 g de pescado</td></tr>
+          <tr><td>80 kg</td><td>65 g</td><td>1 vaso de leche + 2 yogures + 125 g de carne/pollo (o 2 huevos) + 200 g de pescado</td></tr>
+          <tr><td>90 kg</td><td>70 g</td><td>1 vaso de leche + 2 yogures + 140 g de carne/pollo (o 2 huevos) + 230 g de pescado</td></tr>
+          <tr><td>100 kg</td><td>80 g</td><td>2 vasos de leche + 2 yogures + 150 g de carne/pollo (o 2 huevos) + 250 g de pescado</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 5: ESTILO DE VIDA -->
+  <div class="section-title" style="color:#1a7a4a; border-color:#4faf7a; margin-top:20px">🏃 5. Estilo de Vida</div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header" style="background:#1a7a4a">Pilares del Estilo de Vida Saludable</div>
+      <div class="card-body">
+        <ul style="font-size:13px; padding-left:16px; line-height:2.1">
+          <li><strong>Control del sedentarismo:</strong> pilar fundamental para la estabilidad metabólica del paciente litiásico</li>
+          <li><strong>Gestión del estrés:</strong> el estrés crónico altera el metabolismo mineral</li>
+          <li><strong>Control del peso:</strong> la obesidad es un factor de riesgo para la formación de cálculos</li>
+          <li><strong>Actividad física regular:</strong> mejora la diuresis y el metabolismo</li>
+        </ul>
+      </div>
+    </div>
+    <div class="card">
+      <div class="card-header" style="background:#1a5f7a">⚠️ Aviso sobre Suplementos</div>
+      <div class="card-body">
+        <div class="alert alert-warn" style="margin:0">
+          <div>
+            <p style="font-size:13px; margin-bottom:6px">Consultar con su urólogo antes de continuar si toma:</p>
+            <ul class="pill-list">
+              <li><span class="pill pill-warn">Preparados de Calcio</span></li>
+              <li><span class="pill pill-warn">Vitamina D</span></li>
+            </ul>
+            <p style="font-size:11px; margin-top:8px; color:var(--text-light)">Estos suplementos pueden modificar el riesgo de litiasis.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- SECCIÓN 6: CALCIO -->
+  <div class="section-title" style="color:#1a5f7a; border-color:#5b9eb9; margin-top:20px">🦴 6. Dieta Normocalcémica — Objetivo: 800–1000 mg/día de calcio</div>
+
+  <div class="alert alert-info">
+    <span class="alert-icon">ℹ️</span>
+    <span><strong>Importante:</strong> NO se debe restringir el calcio. Una ingesta adecuada de calcio en la dieta <em>reduce</em> la absorción intestinal de oxalato al unirse a él en el intestino. Se recomiendan <strong>2–3 raciones de lácteos al día</strong> (1 ración = 250 ml leche, ó 2 yogures, ó 40–50 g queso).</span>
+  </div>
+
+  <div class="card" style="margin-bottom:16px">
+    <div class="card-header" style="background:#1a5f7a">🥛 Contenido en Calcio por Ración</div>
+    <div class="card-body">
+      <table class="ca-table">
+        <thead><tr><th>Alimento (ración aproximada)</th><th>Calcio (mg)</th></tr></thead>
+        <tbody>
+          <tr><td>1 vaso de leche de almendra (200 ml)</td><td>400,0 mg</td></tr>
+          <tr><td>Queso curado (30 g)</td><td>251,5 mg</td></tr>
+          <tr><td>1 vaso de leche entera (200 ml)</td><td>248,0 mg</td></tr>
+          <tr><td>1 vaso de leche desnatada (200 ml)</td><td>224,0 mg</td></tr>
+          <tr><td>Queso fresco (60 g)</td><td>202,0 mg</td></tr>
+          <tr><td>1 vaso de leche de soja (200 ml)</td><td>200,0 mg</td></tr>
+          <tr><td>Lata de sardinillas con raspa (60 g)</td><td>188,5 mg</td></tr>
+          <tr><td>Berros (100 g)</td><td>157,0 mg</td></tr>
+          <tr><td>1 yogur natural (125 ml)</td><td>152,5 mg</td></tr>
+          <tr><td>Grelos (100 g)</td><td>98,0 mg</td></tr>
+          <tr><td>Brócoli (100 g)</td><td>93,0 mg</td></tr>
+          <tr><td>Repollo (100 g)</td><td>57,0 mg</td></tr>
+          <tr><td>Almendras (30 g)</td><td>75,5 mg</td></tr>
+          <tr><td>1 cda. sopera semillas de lino (10 g)</td><td>25,5 mg</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="alert alert-ok" style="margin-top:16px">
+    <span class="alert-icon">📌</span>
+    <span>Para recomendaciones específicas según su tipo de litiasis (oxalato/cálcica, ácido úrico, cistina o hipocitraturia), consulte las pestañas correspondientes.</span>
+  </div>
+</div>
+
+<!-- ============================== CALCIO ============================== -->
+<div id="tab-calcio" class="tab-content theme-calcio">
+
+  <div class="section-header">
+    <div class="icon">🔶</div>
+    <div>
+      <h2>Litiasis de Oxalato / Cálcica</h2>
+      <p>Los cálculos de oxalato cálcico son los más frecuentes. El objetivo es reducir el oxalato urinario, mantener una ingesta normocalcémica y limitar la sal y las proteínas animales. Se recomienda consumir entre <strong>60–70 mg/día</strong> de ácido oxálico total.</p>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <span class="alert-icon">ℹ️</span>
+    <span><strong>Técnica culinaria:</strong> Preferir el <strong>hervido</strong> como método de cocción, ya que parte del oxalato se pierde en el agua de cocción. Evitar productos integrales y salvado (mayor contenido en oxalatos).</span>
+  </div>
+
+  <div class="alert alert-warn">
+    <span class="alert-icon">⚠️</span>
+    <span><strong>Vitamina C:</strong> El exceso de vitamina C aumenta el oxalato urinario. Limitar: berro, coliflor, espinacas, castañas, aguacate, caquis, chirimoya, fresas, limón, mandarina, moras, naranja y piña.</span>
+  </div>
+
+  <!-- OXALATOS POR GRUPOS -->
+  <div class="section-title">📊 Contenido en Ácido Oxálico por Grupo de Alimentos</div>
+
+  <div class="grid-2">
+    <!-- Lácteos y carnes -->
+    <div class="card">
+      <div class="card-header">🥛 Lácteos · 🥩 Carnes · Pescados · Huevos</div>
+      <div class="card-body">
+        <div class="alert alert-ok" style="margin-bottom:0; padding: 8px 12px;">
+          <span>✅ <strong>Oxalato: 0 mg/100g.</strong> Se pueden consumir todos libremente. Leche (vaca, cabra, oveja), quesos, yogures, kéfir, carnes, pescados y huevos de cualquier tipo.</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Aceites -->
+    <div class="card">
+      <div class="card-header">🫒 Aceites y Grasas</div>
+      <div class="card-body">
+        <div class="alert alert-ok" style="margin-bottom:0; padding: 8px 12px;">
+          <span>✅ <strong>Oxalato: 0 mg/100g en aceites.</strong> Cualquier aceite (oliva preferente, girasol, lino, sésamo). Ver frutos secos abajo.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <!-- Frutos secos -->
+    <div class="card">
+      <div class="card-header">🥜 Frutos Secos — Oxalato (mg/100g)</div>
+      <div class="card-body">
+        <table class="food-table">
+          <thead><tr><th>Alimento</th><th>Oxalato</th><th>Nivel</th></tr></thead>
+          <tbody>
+            <tr><td>Almendra</td><td class="value-high">296 mg</td><td><span class="pill pill-danger">Muy alto</span></td></tr>
+            <tr><td>Anacardo</td><td class="value-high">265,9 mg</td><td><span class="pill pill-danger">Muy alto</span></td></tr>
+            <tr><td>Avellana</td><td class="value-high">194,4 mg</td><td><span class="pill pill-danger">Alto</span></td></tr>
+            <tr><td>Piñón</td><td class="value-high">179,9 mg</td><td><span class="pill pill-danger">Alto</span></td></tr>
+            <tr><td>Cacahuete</td><td class="value-mid">75,6 mg</td><td><span class="pill pill-warn">Moderado</span></td></tr>
+            <tr><td>Pistacho</td><td class="value-mid">67,1 mg</td><td><span class="pill pill-warn">Moderado</span></td></tr>
+            <tr><td>Nueces</td><td class="value-mid">54,1 mg</td><td><span class="pill pill-warn">Moderado</span></td></tr>
+            <tr><td>Nueces de pecán</td><td class="value-mid">36,7 mg</td><td><span class="pill pill-warn">Moderado</span></td></tr>
+            <tr><td>Semillas calabaza/melón/girasol</td><td class="value-zero">&lt;2,5 mg</td><td><span class="pill pill-ok">Sin detección</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Legumbres -->
+    <div class="card">
+      <div class="card-header">🫘 Legumbres — Oxalato (mg/100g) <span style="font-weight:300; font-size:10px">(cocidas)</span></div>
+      <div class="card-body">
+        <table class="food-table">
+          <thead><tr><th>Alimento</th><th>Oxalato</th><th>Nivel</th></tr></thead>
+          <tbody>
+            <tr><td>Soja / Soja roja</td><td class="value-high">68,6 mg</td><td><span class="pill pill-warn">Alto</span></td></tr>
+            <tr><td>Judías negras</td><td class="value-mid">41 mg</td><td><span class="pill pill-warn">Moderado</span></td></tr>
+            <tr><td>Judías pintas</td><td class="value-mid">27 mg</td><td><span class="pill pill-warn">Moderado</span></td></tr>
+            <tr><td>Garbanzos</td><td class="value-low">9 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Lentejas</td><td class="value-low">8 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Brotes de soja</td><td class="value-low">8,3 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Guisantes</td><td class="value-zero">&lt;2,5 mg</td><td><span class="pill pill-ok">Sin detección</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Verduras -->
+  <div class="card" style="margin-bottom:16px">
+    <div class="card-header">🥦 Verduras y Hortalizas — Oxalato (mg/100g)</div>
+    <div class="card-body">
+      <div class="alert alert-danger" style="margin-bottom:12px; padding: 8px 12px;">
+        <span>🚫 <strong>Evitar:</strong> Acelgas (650), Ruibarbo (600), Remolacha (500), Espinacas (490,5), Jengibre (218,5), Brotes de bambú (112,2)</span>
+      </div>
+      <div class="grid-2" style="gap:10px">
+        <table class="food-table">
+          <thead><tr><th>Alimento</th><th>Oxalato</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>Acelgas</td><td class="value-high">650 mg</td><td><span class="pill pill-danger">Evitar</span></td></tr>
+            <tr><td>Ruibarbo</td><td class="value-high">600 mg</td><td><span class="pill pill-danger">Evitar</span></td></tr>
+            <tr><td>Remolacha</td><td class="value-high">500 mg</td><td><span class="pill pill-danger">Evitar</span></td></tr>
+            <tr><td>Espinacas</td><td class="value-high">490,5 mg</td><td><span class="pill pill-danger">Evitar</span></td></tr>
+            <tr><td>Jengibre</td><td class="value-high">218,5 mg</td><td><span class="pill pill-danger">Evitar</span></td></tr>
+            <tr><td>Brotes de bambú</td><td class="value-high">112,2 mg</td><td><span class="pill pill-danger">Evitar</span></td></tr>
+            <tr><td>Judías verdes</td><td class="value-mid">43,5 mg</td><td><span class="pill pill-warn">Limitar</span></td></tr>
+            <tr><td>Boniato</td><td class="value-mid">27,6 mg</td><td><span class="pill pill-warn">Limitar</span></td></tr>
+            <tr><td>Zanahoria</td><td class="value-low">21,9 mg</td><td><span class="pill pill-ok">Moderado</span></td></tr>
+            <tr><td>Berro</td><td class="value-low">19,5 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+          </tbody>
+        </table>
+        <table class="food-table">
+          <thead><tr><th>Alimento</th><th>Oxalato</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>Berenjena blanca</td><td class="value-low">24,1 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Berenjena morada</td><td class="value-low">18,1 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Cilantro</td><td class="value-low">18 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Apio / Lechuga</td><td class="value-low">16,1 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Patata</td><td class="value-low">11,8 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Espárragos</td><td class="value-low">6 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Alcachofas</td><td class="value-low">5 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Tomate</td><td class="value-low">5,2 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Pepino / Calabacín</td><td class="value-low">3,6–4 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Calabaza, pimientos, brócoli, cebolla, repollo, setas, coles, rábano, coliflor, nabos</td><td class="value-zero">&lt;2,5 mg</td><td><span class="pill pill-ok">Libre</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2">
+    <!-- Frutas -->
+    <div class="card">
+      <div class="card-header">🍓 Frutas — Oxalato (mg/100g)</div>
+      <div class="card-body">
+        <table class="food-table">
+          <thead><tr><th>Alimento</th><th>Oxalato</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>Fresas</td><td class="value-mid">31,4 mg</td><td><span class="pill pill-warn">Limitar</span></td></tr>
+            <tr><td>Ciruela negra</td><td class="value-low">22,7 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Mango</td><td class="value-low">18,5 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Mandarina</td><td class="value-low">13,7 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Papaya</td><td class="value-low">5 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Caqui</td><td class="value-low">8,5 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Uvas / Pera</td><td class="value-low">4,1 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Plátano</td><td class="value-low">3,4 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Melón</td><td class="value-low">2,7 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Manzana / Nectarina</td><td class="value-low">3,5–3,8 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Pomelo, manzana verde, sandía</td><td class="value-zero">&lt;2,5 mg</td><td><span class="pill pill-ok">Libre</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+    <!-- Cereales -->
+    <div class="card">
+      <div class="card-header">🌾 Cereales — Oxalato (mg/100g)</div>
+      <div class="card-body">
+        <div class="alert alert-danger" style="padding: 7px 10px; margin-bottom: 10px;">
+          <span>🚫 Evitar <strong>harinas integrales y salvado</strong> (trigo, avena, arroz). Preferir harinas refinadas.</span>
+        </div>
+        <table class="food-table">
+          <thead><tr><th>Alimento</th><th>Oxalato</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>Trigo sarraceno</td><td class="value-high">269 mg</td><td><span class="pill pill-danger">Evitar</span></td></tr>
+            <tr><td>Trigo integral</td><td class="value-high">67 mg</td><td><span class="pill pill-danger">Evitar</span></td></tr>
+            <tr><td>Cebada</td><td class="value-mid">56 mg</td><td><span class="pill pill-warn">Evitar</span></td></tr>
+            <tr><td>Centeno</td><td class="value-mid">51 mg</td><td><span class="pill pill-warn">Evitar</span></td></tr>
+            <tr><td>Semolina</td><td class="value-mid">48 mg</td><td><span class="pill pill-warn">Limitar</span></td></tr>
+            <tr><td>Arroz integral</td><td class="value-low">37 mg</td><td><span class="pill pill-warn">Limitar</span></td></tr>
+            <tr><td>Mijo</td><td class="value-low">12,7 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Maíz dulce</td><td class="value-low">6,1 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td><strong>Arroz blanco</strong></td><td class="value-zero">&lt;2,5 mg</td><td><span class="pill pill-ok">✅ Libre</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Otras restricciones -->
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header">🍫 Otros alimentos</div>
+      <div class="card-body">
+        <ul style="list-style:none;">
+          <li style="padding:5px 0; border-bottom:1px solid var(--border)">🚫 <strong>Evitar:</strong> Chocolate, cacao, salsas comerciales, mermeladas</li>
+          <li style="padding:5px 0; border-bottom:1px solid var(--border)">🚫 <strong>Evitar:</strong> Té (alto contenido en oxalato)</li>
+          <li style="padding:5px 0; border-bottom:1px solid var(--border)">✅ <strong>Permitido:</strong> Vino, cerveza, café (máx. 1 taza 200cc)</li>
+          <li style="padding:5px 0">✅ <strong>Azúcares y edulcorantes:</strong> todos permitidos</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">⚠️ Sal — Máximo 2–3 g/día</div>
+      <div class="card-body">
+        <p style="font-size:12px; margin-bottom:8px; color: var(--text-light)">El exceso de sal aumenta la eliminación de calcio en orina. Evitar:</p>
+        <ul class="pill-list">
+          <li><span class="pill pill-danger">Embutidos</span></li>
+          <li><span class="pill pill-danger">Quesos curados</span></li>
+          <li><span class="pill pill-danger">Salazones</span></li>
+          <li><span class="pill pill-danger">Precocinados</span></li>
+          <li><span class="pill pill-danger">Comida rápida</span></li>
+          <li><span class="pill pill-danger">Aperitivos salados</span></li>
+          <li><span class="pill pill-danger">Caldos/cubitos</span></li>
+        </ul>
+        <p style="font-size:11px; margin-top: 10px; color: var(--text-light)">Sustituir por especias: pimienta, laurel, ajo en polvo, tomillo, romero, zumo de limón.</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- Calcio -->
+  <div class="section-title">🦴 Dieta Normocalcémica — Objetivo: 800–1000 mg/día de calcio</div>
+  <div class="alert alert-info">
+    <span class="alert-icon">ℹ️</span>
+    <span><strong>Importante:</strong> NO se debe restringir el calcio. Una ingesta adecuada de calcio en la dieta <em>reduce</em> la absorción intestinal de oxalato, ya que el calcio se une al oxalato en el intestino impidiendo su absorción. Se recomiendan <strong>2–3 raciones de lácteos al día</strong> (1 ración = 250 ml leche, ó 2 yogures, ó 40–50 g queso).</span>
+  </div>
+  <div class="alert alert-ok" style="margin-top:-8px">
+    <span class="alert-icon">⏱️</span>
+    <span><strong>Momento clave:</strong> Se recomienda ingerir el calcio <strong>junto con o inmediatamente después de las comidas</strong>, especialmente de aquellas ricas en oxalato (p.ej. verduras, legumbres, frutos secos). El calcio consumido con los alimentos se une al oxalato directamente en el intestino, reduciendo su absorción y su posterior excreción urinaria.</span>
+  </div>
+
+  <div class="card" style="margin-bottom:16px">
+    <div class="card-header">🥛 Contenido en Calcio por Ración</div>
+    <div class="card-body">
+      <table class="ca-table">
+        <thead><tr><th>Alimento (ración aproximada)</th><th>Calcio (mg)</th></tr></thead>
+        <tbody>
+          <tr><td>1 vaso de leche de almendra (200 ml)</td><td>400,0 mg</td></tr>
+          <tr><td>Queso curado (30 g)</td><td>251,5 mg</td></tr>
+          <tr><td>1 vaso de leche entera (200 ml)</td><td>248,0 mg</td></tr>
+          <tr><td>Queso fresco (60 g)</td><td>202,0 mg</td></tr>
+          <tr><td>1 vaso de leche de soja (200 ml)</td><td>200,0 mg</td></tr>
+          <tr><td>Lata de sardinillas con raspa (60 g)</td><td>188,5 mg</td></tr>
+          <tr><td>1 vaso de leche desnatada (200 ml)</td><td>224,0 mg</td></tr>
+          <tr><td>Berros (100 g)</td><td>157,0 mg</td></tr>
+          <tr><td>1 yogur natural (125 ml)</td><td>152,5 mg</td></tr>
+          <tr><td>Grelos (100 g)</td><td>98,0 mg</td></tr>
+          <tr><td>Brócoli (100 g)</td><td>93,0 mg</td></tr>
+          <tr><td>Repollo (100 g)</td><td>57,0 mg</td></tr>
+          <tr><td>Almendras (30 g)</td><td>75,5 mg</td></tr>
+          <tr><td>1 cda. sopera semillas de lino (10 g)</td><td>25,5 mg</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="alert alert-warn">
+    <span class="alert-icon">⚠️</span>
+    <span>Consultar con su urólogo si toma preparados de <strong>Calcio y/o Vitamina D</strong>. Controlar el peso: la obesidad favorece la formación de cálculos. Evitar el estrés y el sedentarismo.</span>
+  </div>
+</div>
+
+<!-- ============================== ÁCIDO ÚRICO ============================== -->
+<div id="tab-urico" class="tab-content theme-urico">
+
+  <div class="section-header">
+    <div class="icon">🟡</div>
+    <div>
+      <h2>Litiasis de Ácido Úrico</h2>
+      <p>Los cálculos de ácido úrico se forman cuando la orina es muy ácida y hay exceso de purinas. El objetivo es reducir los alimentos ricos en purinas, alcalinizar la orina, controlar el peso y evitar el alcohol.</p>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <span class="alert-icon">ℹ️</span>
+    <span>Las purinas se metabolizan en ácido úrico. Una dieta baja en purinas reduce la carga de ácido úrico urinario. Se recomienda preferir <strong>aguas bicarbonatadas para alcalinizar la orina</strong>, <em>siempre que no presente problemas de hipertensión arterial o enfermedad renal</em>.</span>
+  </div>
+
+  <div class="water-box" style="margin-bottom:14px">
+    <h4>💧 Aguas bicarbonatadas recomendadas (&gt;170 mg/L) — Alcalinizan la orina</h4>
+    <ul>
+      <li>Sierra Cazorla, Evian, Hipercor, Fuente Primavera, Covirán, Solán de Cabras, Fuente Liviana, Solares, Fuente Fría, Angosto, Fuen Santa, Aquarel, Supersol</li>
+    </ul>
+  </div>
+
+  <!-- Tabla de recomendaciones -->
+  <div class="section-title">🍽️ Guía por Grupos de Alimentos</div>
+
+  <div class="card" style="margin-bottom: 16px;">
+    <div class="card-header">Tabla de recomendaciones alimentarias</div>
+    <div class="card-body">
+      <table class="food-table">
+        <thead>
+          <tr>
+            <th>Grupo</th>
+            <th style="color: var(--ok)">✅ Recomendados</th>
+            <th style="color: var(--warn)">⚠️ Limitar (2-3×/sem)</th>
+            <th style="color: var(--danger)">🚫 Desaconsejados</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr>
+            <td><strong>Lácteos</strong></td>
+            <td>Leche desnatada, yogures, queso fresco</td>
+            <td>—</td>
+            <td>Quesos curados, lácteos enteros</td>
+          </tr>
+          <tr>
+            <td><strong>Cereales</strong></td>
+            <td>Harina, arroz, pastas, pan, galletas, sémola, tapioca, pastas alimentarias</td>
+            <td>Bollería industrial, tartas, hojaldres, pastelería</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>Legumbres</strong></td>
+            <td>Judías blancas, garbanzos</td>
+            <td>Lentejas, habas secas, guisantes verdes</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>Carnes</strong></td>
+            <td>Ternera, pollo y pavo sin piel; pavo y jamón york bajo en grasa</td>
+            <td>Cordero, cerdo, conejo, codornices</td>
+            <td>Rojas y grasas; <strong>TODAS</strong> las vísceras (hígado, riñones, sesos, mollejas, callos...)</td>
+          </tr>
+          <tr>
+            <td><strong>Pescados</strong></td>
+            <td>Pescado blanco: gallo, lenguado, merluza...</td>
+            <td>Boquerón, salmón, atún</td>
+            <td>Pescado azul, anchoa, arenque, caballa, sardinas; mariscos y huevas de pescados</td>
+          </tr>
+          <tr>
+            <td><strong>Huevos</strong></td>
+            <td>Permitido 3 veces/semana</td>
+            <td>—</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>Verduras</strong></td>
+            <td>Todas salvo las limitadas</td>
+            <td>Apio, berro, brotes de soja, espárragos, coliflor, champiñones, setas, habas, espinacas, tomate</td>
+            <td>—</td>
+          </tr>
+          <tr>
+            <td><strong>Frutas / Frutos secos</strong></td>
+            <td>Todas salvo las no recomendadas</td>
+            <td>—</td>
+            <td>Cacahuetes, nueces, frutos secos fritos</td>
+          </tr>
+          <tr>
+            <td><strong>Aceites y grasas</strong></td>
+            <td>Aceite de oliva</td>
+            <td>—</td>
+            <td>Manteca de cerdo, tocino, margarina, mantequilla</td>
+          </tr>
+          <tr>
+            <td><strong>Bebidas</strong></td>
+            <td>Agua, té, café, zumos naturales, refrescos...</td>
+            <td>—</td>
+            <td><strong>Alcohol</strong> (especialmente cerveza y vino)</td>
+          </tr>
+          <tr>
+            <td><strong>Salsas y caldos</strong></td>
+            <td>Caldos de verduras, consomés desgrasados</td>
+            <td>Mahonesa, bechamel, salsas, purés con mantequilla</td>
+            <td>Caldos de carnes</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Ácido úrico en alimentos (fotos presentación) -->
+  <div class="section-title">📊 Contenido en Ácido Úrico — Datos por Grupo</div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header">🥛 Lácteos</div>
+      <div class="card-body">
+        <div class="alert alert-ok" style="padding: 8px 12px; margin:0">
+          <span>✅ <strong>Sin purinas relevantes.</strong> No contienen ácido úrico. Preferir leche desnatada, yogures y queso fresco. Leche de vaca, cabra u oveja y derivados (quesos, yogures, kéfir).</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">🥩 Carnes, Pescados, Huevos</div>
+      <div class="card-body">
+        <p style="font-size:12px; margin-bottom:8px">No contienen ácido úrico directamente, pero son ricos en <strong>purinas</strong>. Se puede consumir:</p>
+        <ul style="font-size:12px; padding-left:16px;">
+          <li>Cordero, cerdo, ternera, caballa, salmón, huevos (gallina/codorniz), merluza, pescadilla...</li>
+        </ul>
+        <div class="alert alert-danger" style="padding: 7px 10px; margin-top:10px; margin-bottom:0">
+          <span>🚫 Evitar vísceras: hígado, riñón, sesos, mollejas. Evitar pescado azul y mariscos.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="grid-2" style="margin-top:14px">
+    <div class="card">
+      <div class="card-header">🥜 Grasas y Frutos Secos — Ácido Úrico (mg/100g)</div>
+      <div class="card-body">
+        <p style="font-size:11px; color:var(--text-light); margin-bottom:8px">Se pueden consumir aceites. Frutos secos con moderación:</p>
+        <table class="food-table">
+          <thead><tr><th>Alimento</th><th>Ac. úrico</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>Almendra</td><td class="value-high">400 mg</td><td><span class="pill pill-warn">Limitar</span></td></tr>
+            <tr><td>Avellana</td><td class="value-high">230 mg</td><td><span class="pill pill-warn">Limitar</span></td></tr>
+            <tr><td>Piñón</td><td class="value-mid">178,9 mg</td><td><span class="pill pill-warn">Limitar</span></td></tr>
+            <tr><td>Cacahuete</td><td class="value-high">280 mg</td><td><span class="pill pill-danger">Evitar</span></td></tr>
+            <tr><td>Pistachos</td><td class="value-mid">67,1 mg</td><td><span class="pill pill-ok">Moderado</span></td></tr>
+            <tr><td>Nueces</td><td class="value-mid">25 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Nueces de pecán</td><td class="value-low">38,7 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Semillas calabaza/girasol</td><td class="value-zero">&lt;2,5 mg</td><td><span class="pill pill-ok">Libre</span></td></tr>
+          </tbody>
+        </table>
+        <p style="font-size:11px; color: var(--text-light); margin-top:8px">⚠️ Cacahuetes, nueces y frutos secos fritos: desaconsejados.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">🫘 Legumbres — Ácido Úrico (mg/100g)</div>
+      <div class="card-body">
+        <p style="font-size:11px; color:var(--text-light); margin-bottom:8px">Análisis realizados en legumbres cocidas:</p>
+        <table class="food-table">
+          <thead><tr><th>Alimento</th><th>Ac. úrico</th><th></th></tr></thead>
+          <tbody>
+            <tr><td>Soja</td><td class="value-high">88,5 mg</td><td><span class="pill pill-warn">Limitar</span></td></tr>
+            <tr><td>Brotes de soja</td><td class="value-low">8,5 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Soja roja</td><td class="value-mid">64,6 mg</td><td><span class="pill pill-warn">Limitar</span></td></tr>
+            <tr><td>Aceite oliva</td><td class="value-low">81 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Judías negras</td><td class="value-low">22 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Garbanzos</td><td class="value-low">9 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Lentejas</td><td class="value-low">8 mg</td><td><span class="pill pill-ok">Bajo</span></td></tr>
+            <tr><td>Nitrógeno ureico (Neg) 100 mg/100g</td><td class="value-zero">—</td><td><span class="pill pill-ok">Libre</span></td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+
+  <!-- Proteínas -->
+  <div class="section-title" style="margin-top:18px">🥩 Proteínas Animales — Máximo 0,8 g/kg/día</div>
+  <div class="card" style="margin-bottom:16px">
+    <div class="card-header">Raciones proteicas según peso corporal</div>
+    <div class="card-body">
+      <table class="protein-table">
+        <thead><tr><th>Peso</th><th>Proteínas/día</th><th>Raciones diarias recomendadas</th></tr></thead>
+        <tbody>
+          <tr><td>50–60 kg</td><td>50 g</td><td>1 vaso leche + 1 yogur + 100 g carne/pollo ó 2 huevos + 150 g pescado</td></tr>
+          <tr><td>70 kg</td><td>55 g</td><td>1 vaso leche + 2 yogures + 100 g carne/pollo ó 2 huevos + 150 g pescado</td></tr>
+          <tr><td>80 kg</td><td>65 g</td><td>1 vaso leche + 2 yogures + 125 g carne/pollo ó 2 huevos + 200 g pescado</td></tr>
+          <tr><td>90 kg</td><td>70 g</td><td>1 vaso leche + 2 yogures + 140 g carne/pollo ó 2 huevos + 230 g pescado</td></tr>
+          <tr><td>100 kg</td><td>80 g</td><td>2 vasos leche + 2 yogures + 150 g carne/pollo ó 2 huevos + 250 g pescado</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <div class="alert alert-warn">
+    <span class="alert-icon">⚠️</span>
+    <span>Evitar la <strong>obesidad</strong>. Realizar ejercicio físico. Reducir el uso de laxantes. <strong>Evitar el alcohol.</strong> Consumir al menos 3 piezas de fruta y 2 raciones de verdura al día.</span>
+  </div>
+</div>
+
+<!-- ============================== CISTINA ============================== -->
+<div id="tab-cistina" class="tab-content theme-cistina">
+
+  <div class="section-header">
+    <div class="icon">🟣</div>
+    <div>
+      <h2>Litiasis de Cistina</h2>
+      <p>La cistinuria es una enfermedad genética que produce exceso de cistina en orina. El objetivo es diluir la orina al máximo y reducir las proteínas animales (que contienen el aminoácido metionina, precursor de la cistina).</p>
+    </div>
+  </div>
+
+  <div class="alert alert-info">
+    <span class="alert-icon">ℹ️</span>
+    <span><strong>Fundamento:</strong> La cistina proviene del metabolismo de la metionina (aminoácido presente en proteínas animales). Reducir la proteína animal disminuye la excreción de cistina. Aumentar la diuresis con abundante ingesta de agua es la medida más importante.</span>
+  </div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header">💧 Hidratación — Lo más importante</div>
+      <div class="card-body">
+        <div class="alert alert-ok" style="padding:8px 12px; margin:0">
+          <span>✅ <strong>Mínimo 2 litros de agua/día</strong>. En calor intenso o ejercicio, aumentar. Evitar refrescos, alcohol y zumos industriales como sustitutos del agua.</span>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">🥦 Frutas y Verduras — Pilar fundamental</div>
+      <div class="card-body">
+        <div class="alert alert-ok" style="padding:8px 12px; margin:0">
+          <span>✅ Consumir <strong>al menos 3 piezas de fruta</strong> al día y <strong>2 raciones de verdura</strong> (comida y cena). Los alimentos ricos en fibra vegetal son esenciales y ayudan a alcalinizar la orina.</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Proteínas -->
+  <div class="section-title" style="margin-top:14px">🥩 Reducción de Proteínas Animales — Clave en litiasis de cistina</div>
+
+  <div class="alert alert-danger">
+    <span class="alert-icon">🚨</span>
+    <span>En la litiasis de cistina, la reducción de proteínas animales es <strong>especialmente importante</strong>, ya que la metionina contenida en carnes, pescados y huevos es el precursor directo de la cistina urinaria. Objetivo: <strong>0,8 g/kg/día</strong>.</span>
+  </div>
+
+  <div class="card" style="margin-bottom:16px">
+    <div class="card-header">Raciones proteicas según peso corporal</div>
+    <div class="card-body">
+      <table class="protein-table">
+        <thead><tr><th>Peso</th><th>Proteínas/día</th><th>Raciones diarias recomendadas</th></tr></thead>
+        <tbody>
+          <tr><td>50–60 kg</td><td>50 g</td><td>1 vaso leche + 1 yogur + 100 g carne/pollo ó 2 huevos + 150 g pescado</td></tr>
+          <tr><td>70 kg</td><td>55 g</td><td>1 vaso leche + 2 yogures + 100 g carne/pollo ó 2 huevos + 150 g pescado</td></tr>
+          <tr><td>80 kg</td><td>65 g</td><td>1 vaso leche + 2 yogures + 125 g carne/pollo ó 2 huevos + 200 g pescado</td></tr>
+          <tr><td>90 kg</td><td>70 g</td><td>1 vaso leche + 2 yogures + 140 g carne/pollo ó 2 huevos + 230 g pescado</td></tr>
+          <tr><td>100 kg</td><td>80 g</td><td>2 vasos leche + 2 yogures + 150 g carne/pollo ó 2 huevos + 250 g pescado</td></tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  <!-- Resumen simple -->
+  <div class="section-title">📋 Resumen de Recomendaciones</div>
+
+  <div class="grid-3">
+    <div class="card">
+      <div class="card-header">✅ Recomendados</div>
+      <div class="card-body">
+        <ul style="font-size:12.5px; padding-left:14px; line-height:2">
+          <li>Agua (mín. 2L/día)</li>
+          <li>Frutas: todas, mínimo 3/día</li>
+          <li>Verduras: todas, 2 raciones/día</li>
+          <li>Lácteos desnatados (leche, yogur, queso fresco)</li>
+          <li>Legumbres (proteína vegetal preferible)</li>
+          <li>Cereales: arroz, pasta, pan</li>
+          <li>Aceite de oliva</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">⚠️ Limitar</div>
+      <div class="card-body">
+        <ul style="font-size:12.5px; padding-left:14px; line-height:2">
+          <li>Carnes (máx. según tabla de peso)</li>
+          <li>Pescados (máx. según tabla de peso)</li>
+          <li>Huevos (máx. según tabla de peso)</li>
+          <li>Quesos curados</li>
+          <li>Refrescos y zumos industriales</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">🚫 Evitar</div>
+      <div class="card-body">
+        <ul style="font-size:12.5px; padding-left:14px; line-height:2">
+          <li>Alcohol</li>
+          <li>Exceso de proteína animal</li>
+          <li>Sal en exceso (&gt;3 g/día)</li>
+          <li>Refrescos como sustitutos del agua</li>
+          <li>Sedentarismo y estrés</li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <div class="alert alert-info" style="margin-top:14px">
+    <span class="alert-icon">🔗</span>
+    <span>Las recomendaciones sobre <strong>restricción de sal</strong> y <strong>control de proteínas animales</strong> son comunes a todos los tipos de litiasis. Consúltelas en la pestaña <strong>⭐ Recomendaciones Universales</strong>.</span>
+  </div>
+</div>
+
+<!-- ============================== HIPOCITRATURIA ============================== -->
+<div id="tab-citrato" class="tab-content theme-citrato">
+
+  <div class="section-header">
+    <div class="icon">🟢</div>
+    <div>
+      <h2>Hipocitraturia</h2>
+      <p>El citrato es un potente inhibidor de la cristalización de sales de calcio. La hipocitraturia (citrato urinario bajo) favorece la formación de cálculos de calcio. El objetivo es aumentar la excreción urinaria de citrato a través de la dieta.</p>
+    </div>
+  </div>
+
+  <div class="alert alert-ok">
+    <span class="alert-icon">✅</span>
+    <span><strong>Principio clave:</strong> El consumo de <strong>frutas y vegetales</strong> aumenta la excreción de citrato en orina porque estos alimentos contienen bases (citrato, malato) que se metabolizan a bicarbonato, alcalinizando la orina y favoreciendo la citraturia.</span>
+  </div>
+
+  <!-- Cítricos -->
+  <div class="section-title">🍊 Frutas que Aumentan el Citrato Urinario</div>
+
+  <div class="grid-2">
+    <div class="card">
+      <div class="card-header">🍊 Cítricos — Especialmente Recomendados</div>
+      <div class="card-body">
+        <ul class="pill-list" style="gap:8px">
+          <li><span class="pill pill-ok" style="font-size:13px; padding: 6px 14px">🍊 Naranja</span></li>
+          <li><span class="pill pill-ok" style="font-size:13px; padding: 6px 14px">🍋 Limón / Lima</span></li>
+          <li><span class="pill pill-ok" style="font-size:13px; padding: 6px 14px">🍊 Mandarina</span></li>
+          <li><span class="pill pill-ok" style="font-size:13px; padding: 6px 14px">🥝 Kiwi</span></li>
+          <li><span class="pill pill-ok" style="font-size:13px; padding: 6px 14px">🍍 Piña</span></li>
+          <li><span class="pill pill-ok" style="font-size:13px; padding: 6px 14px">🍓 Fresas</span></li>
+          <li><span class="pill pill-ok" style="font-size:13px; padding: 6px 14px">🍊 Naranja china / Quinotos</span></li>
+          <li><span class="pill pill-warn" style="font-size:13px; padding: 6px 14px">⚠️ Pomelo*</span></li>
+        </ul>
+        <p style="font-size:11px; color: var(--text-light); margin-top:10px">*El pomelo puede interaccionar con ciertos medicamentos. Consultar con su médico.</p>
+        <p style="font-size:12px; margin-top:8px">Se recomienda <strong>al menos 3 piezas de fruta al día</strong> y <strong>2 raciones de verdura</strong>.</p>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="card-header">⚠️ Fármacos que pueden causar Hipocitraturia</div>
+      <div class="card-body">
+        <div class="alert alert-warn" style="margin:0; padding: 10px 12px">
+          <div>
+            <p style="font-size:13px; margin-bottom:8px">Avise a su médico si toma alguno de estos medicamentos, ya que pueden reducir el citrato urinario:</p>
+            <ul class="pill-list">
+              <li><span class="pill pill-warn">Acetazolamida</span></li>
+              <li><span class="pill pill-warn">Topiramato</span></li>
+              <li><span class="pill pill-warn">IECA</span></li>
+              <li><span class="pill pill-warn">Tiazidas</span></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Calcio — remitir a Universales -->
+  <div class="alert alert-info" style="margin-top:16px">
+    <span class="alert-icon">🔗</span>
+    <span>Las recomendaciones sobre <strong>dieta normocalcémica</strong> (ingesta de calcio), <strong>restricción de sal</strong> y <strong>control de proteínas animales</strong> son comunes a todos los tipos de litiasis. Consúltelas en la pestaña <strong>⭐ Recomendaciones Universales</strong>.</span>
+  </div>
+
+  <div class="alert alert-warn">
+    <span class="alert-icon">⚠️</span>
+    <span>Consultar con urólogo si toma <strong>preparados de Calcio y/o Vitamina D</strong>. Evitar el estrés y el sedentarismo. Llevar una vida activa.</span>
+  </div>
+
+  <div class="water-box">
+    <h4>💧 Hidratación — Mínimo 2 litros/día de agua</h4>
+    <ul>
+      <li>Preferir agua (no refrescos ni zumos industriales)</li>
+      <li>En calor o ejercicio intenso, aumentar la cantidad</li>
+    </ul>
+  </div>
+</div>
+
+<footer>
+  <p>Hoja informativa para pacientes con litiasis renal · Servicio de Urología · Hospital Clínico San Carlos · Fuente: AEU (Asociación Española de Urología)</p>
+  <p style="margin-top:4px">Esta hoja es orientativa. Consulte siempre con su médico urólogo para recomendaciones individualizadas.</p>
+</footer>
+
+<button class="print-btn no-print" onclick="window.print()">🖨️ Imprimir / Guardar PDF</button>
+
+<script>
+  function showTab(tab) {
+    document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+    document.querySelectorAll('.tab-btn').forEach(el => el.classList.remove('active'));
+    document.getElementById('tab-' + tab).classList.add('active');
+    document.querySelector('[data-tab="' + tab + '"]').classList.add('active');
+  }
+</script>
+
+</body>
+</html>
